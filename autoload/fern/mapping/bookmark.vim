@@ -34,7 +34,7 @@ function! s:map_save_as_bookmark(helper) abort
             \ ? printf('fern:file://%s', simplify(fnamemodify(url.path, ':p')))
             \ : simplify(fnamemodify(url.path, ':p:~'))
     endif
-    call fern#scheme#dict#tree#write(tree, name, value)
+    call fern#scheme#dict#tree#create(tree, name, value)
   endfor
   call fern#scheme#bookmark#store#write(tree)
   return s:Promise.resolve()
