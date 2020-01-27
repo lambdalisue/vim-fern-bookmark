@@ -13,9 +13,6 @@ function! fern#scheme#bookmark#store#write(data) abort
   call writefile([json_encode(a:data)], path)
 endfunction
 
-function! fern#scheme#bookmark#store#set(path, value) abort
-endfunction
-
 
 call s:Config.config(expand('<sfile>:p'), {
       \ 'file': expand('~/.fern/bookmark.json'),

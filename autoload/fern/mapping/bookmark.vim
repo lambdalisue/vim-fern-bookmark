@@ -1,3 +1,4 @@
+let s:Path = vital#fern#import('System.Filepath')
 let s:Prompt = vital#fern#import('Prompt')
 let s:Promise = vital#fern#import('Async.Promise')
 
@@ -25,11 +26,15 @@ function! s:map_save_as_bookmark(helper) abort
   endfor
   let tree = fern#scheme#bookmark#store#read()
   for node in nodes
-    call fern#scheme#dict#tree#set(
-          \ tree,
-          \ [fern#lib#url#encode(node.bufname)],
-          \ node.bufname,
-          \)
+    let url = fern#lib#url#parse(node.bufname)
+    let name = s:Path.basename(url.path)
+    let value = node.bufname
+    if url.scheme ==# 'file' || empty(url.scheme)
+      let value = isdirectory(url.path)
+            \ ? printf('fern:file://%s', simplify(fnamemodify(url.path, ':p')))
+            \ : simplify(fnamemodify(url.path, ':p:~'))
+    endif
+    call fern#scheme#dict#tree#write(tree, name, value)
   endfor
   call fern#scheme#bookmark#store#write(tree)
   return s:Promise.resolve()
