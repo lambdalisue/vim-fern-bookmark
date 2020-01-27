@@ -38,5 +38,7 @@ function! s:map_save_as_bookmark(helper) abort
   endfor
   call fern#scheme#bookmark#store#write(tree)
   return s:Promise.resolve()
+        \.then({ -> a:helper.update_marks([]) })
+        \.then({ -> a:helper.redraw() })
         \.then({ -> fern#message#info(printf("%d nodes are saved as bookmarks", len(nodes))) })
 endfunction
