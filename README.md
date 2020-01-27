@@ -4,49 +4,46 @@ A plugin for [fern.vim](https://github.com/lambdalisue/fern.vim) which provides 
 
 ## Usage
 
-Execute the following command to open a default bookmark.
+First of all, open fern for any scheme and hit `B` to save selected nodes to bookmarks.
+Then, execute the following command to open a bookmark tree.
 
 ```
 :Fern bookmark:
 ```
 
-Or execute the following command to open a bookmark which name is 'custom'.
-
-```
-:Fern bookmark:custom
-```
-
-Now create a new entry with `N` and edit that entry with `e` to fill arbital path.
-Or execute `add-cwd-to-bookmark` or `add-previous-buffer-to-bookmark` action.
-
-After all, hit `<Return>` to open a file/directory, `x` to open the file/directory with a system
+In bookmark tree, you can manually create a new bookmark with `N` or edit with `e`.
+Or, hit `<Return>` to open the bookmark, `x` to open the bookmark with a system
 program, or execute `cd/lcd/tcd` action to change current directory.
 
 ## Mapping/Action
 
-Addition to the builtin mappings/actions, the followings are available for this scheme.
+Addition to the builtin mappings/actions, the followings are available for bookmark scheme.
 
-| Name                            | Mapping | Description                                                  |
-| ------------------------------- | ------- | ------------------------------------------------------------ |
-| new-leaf                        | `N`     | Add new bookmark                                             |
-| new-branch                      | `K`     | Add new bookmark folder                                      |
-| remove                          | `d`     | Remove bookmark or folder                                    |
-| open:system                     | `x`     | Open the bookmark with a system program                      |
-| cd                              |         | Change directory with `cd` command                           |
-| lcd                             |         | Change directory with `lcd` command                          |
-| tcd                             |         | Change directory with `tcd` command                          |
-| add-cwd-to-bookmark             |         | Create new bookmark which points a current working directory |
-| add-previous-buffer-to-bookmark |         | Create new bookmark which points a previous buffer           |
+| Mapping | Action        | Description                             |
+| ------- | ------------- | --------------------------------------- |
+| `N`     | `new-leaf`    | Add new bookmark                        |
+| `K`     | `new-branch`  | Add new bookmark folder                 |
+| `d`     | `remove`      | Remove bookmark or folder               |
+| `x`     | `open:system` | Open the bookmark with a system program |
+|         | `cd`          | Change directory with `cd` command      |
+|         | `lcd`         | Change directory with `lcd` command     |
+|         | `tcd`         | Change directory with `tcd` command     |
+
+And the followings are available for _ANY_ scheme.
+
+| Mapping | Action             | Description                                                |
+| ------- | ------------------ | ---------------------------------------------------------- |
+| `B`     | `save-as-bookmark` | Save selected nodes as bookmarks (node must has `bufname`) |
 
 ## Config
 
 The following config variables are available:
 
 ```vim
-let g:fern#scheme#bookmark#store#dir = "~/.fern/bookmark"
+let g:fern_bookmark_disable_default_mappings = 0
 ```
 
 ## License
 
-The code in gina.vim follows MIT license texted in [LICENSE](./LICENSE).
+The code in fern-bookmark.vim follows MIT license texted in [LICENSE](./LICENSE).
 Contributors need to agree that any modifications sent in this repository follow the license.
