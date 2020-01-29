@@ -26,13 +26,14 @@ function! s:map_save_as_bookmark(helper) abort
   endfor
   let tree = fern#scheme#bookmark#store#read()
   for node in nodes
-    let url = fern#lib#url#parse(node.bufname)
-    let name = s:Path.basename(url.path)
+    let fri = fern#fri#parse(node.bufname)
+    let name = s:Path.basename(fri.path)
     let value = node.bufname
-    if url.scheme ==# 'file' || empty(url.scheme)
-      let value = isdirectory(url.path)
-            \ ? printf('fern:file://%s', simplify(fnamemodify(url.path, ':p')))
-            \ : simplify(fnamemodify(url.path, ':p:~'))
+    if fri.scheme ==# 'file' || empty(fri.scheme)
+      let path = fern#scheme#file#fri#from_fri(fri)
+      let value = isdirectory(path)
+            \ ? printf('fern:///%s', fern#scheme#file#fri#to_fri(path))
+            \ : simplify(fnamemodify(path, ':p:~'))
     endif
     call fern#scheme#dict#tree#create(tree, name, value)
   endfor

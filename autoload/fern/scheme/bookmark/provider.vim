@@ -12,13 +12,13 @@ function! fern#scheme#bookmark#provider#new() abort
         \ '_extend_node': funcref('s:extend_node'),
         \ '_prompt_leaf': funcref('s:prompt', ['bookmark']),
         \ '_prompt_branch': funcref('s:prompt', ['bookmark folder']),
-        \ '_default_leaf': { h, n, p -> fern#lib#url#decode(p) },
+        \ '_default_leaf': { h, n, p -> fern#scheme#bookmark#util#decode(p) },
         \})
   return provider
 endfunction
 
 function! s:parse_url(url) abort dict
-  let url = fern#lib#url#parse(a:url)
+  let url = fern#fri#parse(a:url)
   return split(url.path, '/')
 endfunction
 
@@ -44,5 +44,5 @@ function! s:prompt(label, helper) abort
     throw 'Cancelled'
   endif
   " NOTE: Escape path so that / is available in path
-  return fern#lib#url#encode(path)
+  return fern#scheme#bookmark#util#encode(path)
 endfunction
