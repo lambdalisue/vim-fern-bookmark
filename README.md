@@ -8,7 +8,7 @@ First of all, open fern for any scheme and hit `B` to save selected nodes to boo
 Then, execute the following command to open a bookmark tree.
 
 ```
-:Fern bookmark:
+:Fern bookmark:///
 ```
 
 In bookmark tree, you can manually create a new bookmark with `N` or edit with `e`.
