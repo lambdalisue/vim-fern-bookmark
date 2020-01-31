@@ -31,7 +31,7 @@ function! s:extend_node(node) abort dict
         \ : a:node.label
   let bufname = a:node.status is# s:STATUS_NONE
         \ ? a:node.concealed._value
-        \ : printf('bookmark:%s', a:node._path)
+        \ : printf('bookmark://%s', a:node._path)
   return extend(a:node, {
         \ 'label': label,
         \ 'bufname': bufname,
