@@ -41,5 +41,5 @@ function! s:map_save_as_bookmark(helper) abort
   return s:Promise.resolve()
         \.then({ -> a:helper.update_marks([]) })
         \.then({ -> a:helper.redraw() })
-        \.then({ -> fern#message#info(printf("%d nodes are saved as bookmarks", len(nodes))) })
+        \.then({ -> a:helper.echo(printf("%d nodes are saved as bookmarks", len(nodes))) })
 endfunction
