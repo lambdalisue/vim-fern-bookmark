@@ -1,4 +1,6 @@
-# fern-bookmark.vim
+# 🌿 fern-bookmark.vim
+
+[![fern plugin](https://img.shields.io/badge/🌿%20fern-plugin-yellowgreen)](https://github.com/lambdalisue/fern.vim)
 
 A plugin for [fern.vim](https://github.com/lambdalisue/fern.vim) which provides simple bookmark feature.
 

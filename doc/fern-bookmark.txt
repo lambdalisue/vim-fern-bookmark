@@ -1,0 +1,44 @@
+*fern-bookmark.txt*		fern plugin to add bookmark scheme
+
+=============================================================================
+CONTENTS				*fern-bookmark-contents*
+
+INTRODUCTION			|fern-bookmark-introduction|
+USAGE				|fern-bookmark-usage|
+INTERFACE			|fern-bookmark-interface|
+  VARIABLE			|fern-bookmark-variable|
+
+
+=============================================================================
+INTRODUCTION				*fern-bookmark-introduction*
+
+*fern-bookmark.vim* is a |fern.vim| plugin which add bookmark scheme.
+
+
+=============================================================================
+USAGE					*fern-bookmark-usage*
+
+Run "bookmark:///" scheme like:
+>
+	:Fern bookmark:///
+<
+Note that fern-bookmark.vim add "save-as-bookmark" action to any tree so hit
+"B" or execute that action to add selected nodes as bookmarks.
+
+
+=============================================================================
+INTERFACE				*fern-bookmark-interface*
+
+-----------------------------------------------------------------------------
+VARIABLE				*fern-bookmark-variable*
+
+*g:fern_bookmark_disable_default_mappings*
+	Set 1 to disable bookmark scheme specific default mappings.
+	Default: 0
+
+*g:fern#scheme#bookmark#store#file*
+	A local file path where the bookmark JSON has stored.
+	Default: "~/.fern/bookmark.json"
+
+=============================================================================
+vim:tw=78:fo=tcq2mM:ts=8:ft=help:norl
