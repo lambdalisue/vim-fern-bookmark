@@ -32,7 +32,7 @@ INTERFACE				*fern-bookmark-interface*
 -----------------------------------------------------------------------------
 VARIABLE				*fern-bookmark-variable*
 
-*g:fern_bookmark_disable_default_mappings*
+*g:fern#mapping#bookmark#disable_default_mappings*
 	Set 1 to disable bookmark scheme specific default mappings.
 	Default: 0
 

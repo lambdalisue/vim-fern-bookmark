@@ -5,7 +5,7 @@ let s:Promise = vital#fern#import('Async.Promise')
 function! fern#mapping#bookmark#init(disable_default_mappings) abort
   nnoremap <buffer><silent> <Plug>(fern-action-save-as-bookmark) :<C-u>call <SID>call('save_as_bookmark')<CR>
 
-  if !a:disable_default_mappings && !g:fern_bookmark_disable_default_mappings
+  if !a:disable_default_mappings && !g:fern#mapping#bookmark#disable_default_mappings
     nmap <buffer> B <Plug>(fern-action-save-as-bookmark)
   endif
 endfunction
@@ -43,3 +43,5 @@ function! s:map_save_as_bookmark(helper) abort
         \.then({ -> a:helper.redraw() })
         \.then({ -> a:helper.echo(printf("%d nodes are saved as bookmarks", len(nodes))) })
 endfunction
+
+let g:fern#mapping#bookmark#disable_default_mappings = get(g:, 'fern#mapping#bookmark#disable_default_mappings', 0)
