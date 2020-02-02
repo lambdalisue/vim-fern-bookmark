@@ -22,7 +22,7 @@ function! s:call(name, ...) abort
 endfunction
 
 function! s:map_cd(helper, command) abort
-  let node = a:helper.get_cursor_node()
+  let node = a:helper.sync.get_cursor_node()
   if node.status isnot# a:helper.STATUS_NONE
     return s:Promise.reject("folder does not have path to cd")
   endif
@@ -44,13 +44,13 @@ function! s:map_cd(helper, command) abort
 endfunction
 
 function! s:map_open_system(helper) abort
-  let node = a:helper.get_cursor_node()
+  let node = a:helper.sync.get_cursor_node()
   if node.status isnot# a:helper.STATUS_NONE
     return s:Promise.reject("folder does not have path to cd")
   endif
-  let Done = a:helper.process_node(node)
+  let Done = a:helper.sync.process_node(node)
   let path = node.concealed._value
   return fern#scheme#file#shutil#open(path, a:helper.fern.source.token)
-        \.then({ -> a:helper.echo(printf('%s has opened', path)) })
+        \.then({ -> a:helper.sync.echo(printf('%s has opened', path)) })
         \.finally({ -> Done() })
 endfunction

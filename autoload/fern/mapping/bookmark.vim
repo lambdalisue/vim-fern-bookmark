@@ -18,7 +18,7 @@ function! s:call(name, ...) abort
 endfunction
 
 function! s:map_save_as_bookmark(helper) abort
-  let nodes = a:helper.get_selected_nodes()
+  let nodes = a:helper.sync.get_selected_nodes()
   for node in nodes
     if empty(node.bufname)
       return Promise.reject(printf("%s is not bookmarkable node", node.name))
@@ -39,9 +39,9 @@ function! s:map_save_as_bookmark(helper) abort
   endfor
   call fern#scheme#bookmark#store#write(tree)
   return s:Promise.resolve()
-        \.then({ -> a:helper.update_marks([]) })
-        \.then({ -> a:helper.redraw() })
-        \.then({ -> a:helper.echo(printf("%d nodes are saved as bookmarks", len(nodes))) })
+        \.then({ -> a:helper.async.update_marks([]) })
+        \.then({ -> a:helper.async.redraw() })
+        \.then({ -> a:helper.sync.echo(printf("%d nodes are saved as bookmarks", len(nodes))) })
 endfunction
 
 let g:fern#mapping#bookmark#disable_default_mappings = get(g:, 'fern#mapping#bookmark#disable_default_mappings', 0)
