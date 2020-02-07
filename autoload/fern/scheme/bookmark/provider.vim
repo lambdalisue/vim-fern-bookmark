@@ -1,7 +1,7 @@
 let s:Prompt = vital#fern#import('Prompt')
 let s:Promise = vital#fern#import('Async.Promise')
 
-let s:STATUS_NONE = g:fern#internal#node#STATUS_NONE
+let s:STATUS_NONE = g:fern#STATUS_NONE
 
 function! fern#scheme#bookmark#provider#new() abort
   let tree = fern#scheme#bookmark#store#read()

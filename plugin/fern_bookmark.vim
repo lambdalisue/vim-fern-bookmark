@@ -3,4 +3,4 @@ if exists('g:fern_bookmark_loaded')
 endif
 let g:fern_bookmark_loaded = 1
 
-call extend(g:fern#internal#mapping#mappings, ['bookmark'])
+call extend(g:fern#mappings, ['bookmark'])
