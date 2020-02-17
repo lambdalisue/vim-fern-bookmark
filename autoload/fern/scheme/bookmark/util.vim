@@ -5,4 +5,3 @@ endfunction
 function! fern#scheme#bookmark#util#decode(str) abort
   return substitute(a:str, '%2F', '/', 'g')
 endfunction
-
