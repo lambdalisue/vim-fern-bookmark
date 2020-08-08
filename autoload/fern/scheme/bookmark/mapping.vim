@@ -1,7 +1,7 @@
 let s:Promise = vital#fern#import('Async.Promise')
 
 function! fern#scheme#bookmark#mapping#init(disable_default_mappings) abort
-  call fern#scheme#dict#mapping#init(a:disable_default_mappings)
+  call fern#mapping#init('dict')
 
   nnoremap <buffer><silent> <Plug>(fern-action-cd)          :<C-u>call <SID>call('cd', 'cd')<CR>
   nnoremap <buffer><silent> <Plug>(fern-action-lcd)         :<C-u>call <SID>call('cd', 'lcd')<CR>
