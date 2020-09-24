@@ -4,7 +4,7 @@ function! fern#mapping#bookmark#init(disable_default_mappings) abort
   nnoremap <buffer><silent> <Plug>(fern-action-save-as-bookmark) :<C-u>call <SID>call('save_as_bookmark')<CR>
 
   if !a:disable_default_mappings && !g:fern#mapping#bookmark#disable_default_mappings
-    nmap <buffer> B <Plug>(fern-action-save-as-bookmark)
+    call fern#mapping#nmap('B', '<Plug>(fern-action-save-as-bookmark)')
   endif
 endfunction
 
