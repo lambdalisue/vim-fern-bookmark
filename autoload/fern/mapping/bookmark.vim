@@ -1,4 +1,4 @@
-let s:Promise = vital#fern#import('Async.Promise')
+let s:Promise = vital#fern_bookmark#import('Async.Promise')
 
 function! fern#mapping#bookmark#init(disable_default_mappings) abort
   nnoremap <buffer><silent> <Plug>(fern-action-save-as-bookmark) :<C-u>call <SID>call('save_as_bookmark')<CR>

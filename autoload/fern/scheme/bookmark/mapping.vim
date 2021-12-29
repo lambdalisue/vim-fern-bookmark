@@ -1,4 +1,4 @@
-let s:Promise = vital#fern#import('Async.Promise')
+let s:Promise = vital#fern_bookmark#import('Async.Promise')
 
 function! fern#scheme#bookmark#mapping#init(disable_default_mappings) abort
   call fern#mapping#init('dict')

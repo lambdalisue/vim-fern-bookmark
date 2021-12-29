@@ -1,5 +1,5 @@
-let s:Prompt = vital#fern#import('Prompt')
-let s:Promise = vital#fern#import('Async.Promise')
+let s:Prompt = vital#fern_bookmark#import('Prompt')
+let s:Promise = vital#fern_bookmark#import('Async.Promise')
 
 let s:STATUS_NONE = g:fern#STATUS_NONE
 

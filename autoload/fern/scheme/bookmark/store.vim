@@ -1,4 +1,4 @@
-let s:Config = vital#fern#import('Config')
+let s:Config = vital#fern_bookmark#import('Config')
 
 function! fern#scheme#bookmark#store#read() abort
   let path = g:fern#scheme#bookmark#store#file
