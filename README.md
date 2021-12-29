@@ -25,7 +25,7 @@ Addition to the builtin mappings/actions, the followings are available for bookm
 | ------- | ------------- | --------------------------------------- |
 | `N`     | `new-leaf`    | Add new bookmark                        |
 | `K`     | `new-branch`  | Add new bookmark folder                 |
-| `d`     | `remove`      | Remove bookmark or folder               |
+| `D`     | `remove`      | Remove bookmark or folder               |
 | `x`     | `open:system` | Open the bookmark with a system program |
 |         | `cd`          | Change directory with `cd` command      |
 |         | `lcd`         | Change directory with `lcd` command     |
