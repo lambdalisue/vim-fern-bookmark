@@ -1,5 +1,3 @@
-let s:Config = vital#fern_bookmark#import('Config')
-
 function! fern#scheme#bookmark#store#read() abort
   let path = g:fern#scheme#bookmark#store#file
   let path = fnamemodify(path, ':p')
@@ -14,6 +12,4 @@ function! fern#scheme#bookmark#store#write(data) abort
 endfunction
 
 
-call s:Config.config(expand('<sfile>:p'), {
-      \ 'file': '~/.fern/bookmark.json',
-      \})
+let g:fern#scheme#bookmark#store#file = get(g:, 'fern#scheme#bookmark#store#file', '~/.fern/bookmark.json')
