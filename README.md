@@ -39,11 +39,7 @@ And the followings are available for _ANY_ scheme.
 
 ## Config
 
-The following config variables are available:
-
-```vim
-let g:fern#mapping#bookmark#disable_default_mappings = 0
-```
+See `:help fern-bookmark-variable`.
 
 ## License
 
